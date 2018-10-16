@@ -34,11 +34,11 @@ type KafkaMessage struct {
 	consumer *cluster.Consumer
 }
 
-func (m KafkaMessage) Ack(multiple bool) error {
+func (m KafkaMessage) Ack() error {
 	m.consumer.MarkOffset(m.Msg, "")
 	return nil
 }
 
-func (m KafkaMessage) Nack(multiple bool) error {
+func (m KafkaMessage) Nack() error {
 	return nil
 }
