@@ -69,7 +69,7 @@ func NewAdapter(options Options) (*Adapter, error) {
 		Producer: producer,
 		ch:       make(chan *babex.Message),
 		err:      make(chan error),
-		multi:    make(babex.Channels),
+		multi:    make(chan *babex.Channel),
 	}
 
 	if options.Mode == ModeMulti {
