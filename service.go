@@ -23,7 +23,7 @@ type Adapter struct {
 	options Options
 	ch      chan *babex.Message
 	err     chan error
-	multi   babex.Channels
+	multi   chan *babex.Channel
 }
 
 type Options struct {
