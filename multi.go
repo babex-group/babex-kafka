@@ -23,7 +23,7 @@ func multiListen(adapter *Adapter) {
 				adapter.multi <- babex.NewChannel(ch)
 
 				for msg := range pc.Messages() {
-					m, err := NewMessage(adapter.Consumer, msg)
+					m, err := adapter.options.ConvertMessage(adapter.Consumer, msg)
 					if err != nil {
 						adapter.err <- err
 						adapter.Consumer.MarkOffset(msg, "")

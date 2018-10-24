@@ -11,7 +11,7 @@ MainLoop:
 				break MainLoop
 			}
 
-			m, err := NewMessage(adapter.Consumer, msg)
+			m, err := adapter.options.ConvertMessage(adapter.Consumer, msg)
 			if err != nil {
 				adapter.err <- err
 				adapter.Consumer.MarkOffset(msg, "")

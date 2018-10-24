@@ -3,7 +3,7 @@ module github.com/babex-group/babex-kafka
 require (
 	github.com/Shopify/sarama v1.19.0
 	github.com/Shopify/toxiproxy v2.1.3+incompatible // indirect
-	github.com/babex-group/babex v0.0.0-20181016102541-8dc1c007e05c
+	github.com/babex-group/babex v0.0.0-20181024105247-5baf76d2ab92
 	github.com/bsm/sarama-cluster v2.1.15+incompatible
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/eapache/go-resiliency v1.1.0 // indirect

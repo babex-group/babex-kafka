@@ -10,6 +10,8 @@ github.com/babex-group/babex v0.0.0-20181016092740-e5773e295a18 h1:ryAHQ0WO7zoti
 github.com/babex-group/babex v0.0.0-20181016092740-e5773e295a18/go.mod h1:Ys1iDdc4zhjW3CWjihSWC3Jf3GFXwsMaa+PwIPllqlg=
 github.com/babex-group/babex v0.0.0-20181016102541-8dc1c007e05c h1:0N0Q+V/kPJ60sFjkWEunmGFmbugudCdo/Akzkh45z7I=
 github.com/babex-group/babex v0.0.0-20181016102541-8dc1c007e05c/go.mod h1:Ys1iDdc4zhjW3CWjihSWC3Jf3GFXwsMaa+PwIPllqlg=
+github.com/babex-group/babex v0.0.0-20181024105247-5baf76d2ab92 h1:Lc8Cbu+z4aUxC06YlE52Rl434ybI5UwFrpodJxpgnHY=
+github.com/babex-group/babex v0.0.0-20181024105247-5baf76d2ab92/go.mod h1:Ys1iDdc4zhjW3CWjihSWC3Jf3GFXwsMaa+PwIPllqlg=
 github.com/bsm/sarama-cluster v2.1.15+incompatible h1:RkV6WiNRnqEEbp81druK8zYhmnIgdOjqSVi0+9Cnl2A=
 github.com/bsm/sarama-cluster v2.1.15+incompatible/go.mod h1:r7ao+4tTNXvWm+VRpRJchr2kQhqxgmAp2iEX5W96gMM=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=

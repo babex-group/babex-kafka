@@ -35,10 +35,18 @@ type Options struct {
 	// If mode is Multi then use service.GetChannels()
 	Mode Mode
 
+	// Function for message converting from sarama.Message to babex.Message
+	// Default kafka.NewMessage
+	ConvertMessage Converter
+
 	consumerConfig *cluster.Config
 }
 
 func NewAdapter(options Options) (*Adapter, error) {
+	if options.ConvertMessage == nil {
+		options.ConvertMessage = NewMessage
+	}
+
 	if options.consumerConfig == nil {
 		options.consumerConfig = cluster.NewConfig()
 	}
