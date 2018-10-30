@@ -141,5 +141,5 @@ func (a *Adapter) Close() error {
 }
 
 func (a *Adapter) Channels() babex.Channels {
-	return nil
+	return a.multi
 }
