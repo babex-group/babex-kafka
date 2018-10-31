@@ -78,8 +78,6 @@ func main() {
 
     defer s.Close()
 
-    msgs, _ := s.GetMessages()
-
     for {
         select {
         case ch, ok := <- s.GetChannels():
