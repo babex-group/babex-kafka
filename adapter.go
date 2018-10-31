@@ -51,6 +51,10 @@ func NewAdapter(options Options) (*Adapter, error) {
 		options.consumerConfig = cluster.NewConfig()
 	}
 
+	if options.Mode == ModeMulti {
+		options.consumerConfig.Group.Mode = cluster.ConsumerModePartitions
+	}
+
 	consumer, err := cluster.NewConsumer(
 		options.Addrs,
 		options.Name,
@@ -141,5 +145,9 @@ func (a *Adapter) Close() error {
 }
 
 func (a *Adapter) Channels() babex.Channels {
-	return a.multi
+	if a.options.Mode == ModeMulti {
+		return a.multi
+	}
+
+	return nil
 }
