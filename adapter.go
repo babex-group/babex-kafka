@@ -39,7 +39,7 @@ type Options struct {
 	// Default kafka.NewMessage
 	ConvertMessage Converter
 
-	consumerConfig *cluster.Config
+	ConsumerConfig *cluster.Config
 }
 
 func NewAdapter(options Options) (*Adapter, error) {
@@ -47,19 +47,19 @@ func NewAdapter(options Options) (*Adapter, error) {
 		options.ConvertMessage = NewMessage
 	}
 
-	if options.consumerConfig == nil {
-		options.consumerConfig = cluster.NewConfig()
+	if options.ConsumerConfig == nil {
+		options.ConsumerConfig = cluster.NewConfig()
 	}
 
 	if options.Mode == ModeMulti {
-		options.consumerConfig.Group.Mode = cluster.ConsumerModePartitions
+		options.ConsumerConfig.Group.Mode = cluster.ConsumerModePartitions
 	}
 
 	consumer, err := cluster.NewConsumer(
 		options.Addrs,
 		options.Name,
 		options.Topics,
-		options.consumerConfig,
+		options.ConsumerConfig,
 	)
 	if err != nil {
 		return nil, err
