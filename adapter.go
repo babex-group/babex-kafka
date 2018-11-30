@@ -2,7 +2,6 @@ package kafka
 
 import (
 	"encoding/json"
-
 	"github.com/Shopify/sarama"
 	"github.com/babex-group/babex"
 	"github.com/bsm/sarama-cluster"
@@ -24,6 +23,7 @@ type Adapter struct {
 	ch      chan *babex.Message
 	err     chan error
 	multi   chan *babex.Channel
+	logger  Logger
 }
 
 type Options struct {
@@ -40,6 +40,7 @@ type Options struct {
 	ConvertMessage Converter
 
 	ConsumerConfig *cluster.Config
+	Logger         Logger
 }
 
 func NewAdapter(options Options) (*Adapter, error) {
@@ -53,6 +54,10 @@ func NewAdapter(options Options) (*Adapter, error) {
 
 	if options.Mode == ModeMulti {
 		options.ConsumerConfig.Group.Mode = cluster.ConsumerModePartitions
+	}
+
+	if options.Logger == nil {
+		options.Logger = &StubLogger{}
 	}
 
 	consumer, err := cluster.NewConsumer(
@@ -82,6 +87,7 @@ func NewAdapter(options Options) (*Adapter, error) {
 		ch:       make(chan *babex.Message),
 		err:      make(chan error),
 		multi:    make(chan *babex.Channel),
+		logger:   options.Logger,
 	}
 
 	if options.Mode == ModeMulti {
