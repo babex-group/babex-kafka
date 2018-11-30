@@ -23,7 +23,14 @@ func multiListen(adapter *Adapter) {
 
 				adapter.logger.Log(fmt.Sprintf("debug: get partition %v for %s", pc.Partition(), pc.Topic()))
 
-				adapter.multi <- babex.NewChannel(ch)
+				babexChannel := babex.NewChannel(ch)
+
+				babexChannel.Info = map[string]interface{}{
+					"topic":     pc.Topic(),
+					"partition": pc.Partition(),
+				}
+
+				adapter.multi <- babexChannel
 
 				for msg := range pc.Messages() {
 					adapter.logger.Log(
